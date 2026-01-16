@@ -246,14 +246,19 @@ const razorpay = new Razorpay({
 });
 
 /* ================== BLOCKCHAIN ================== */
-const provider = new ethers.JsonRpcProvider(process.env.RPC_URL);
-const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
-const vault = new ethers.Contract(
-  process.env.CONTRACT_ADDRESS,
-  ["function deposit() payable"],
-  wallet
-);
+/* ================== BLOCKCHAIN ================== */
+let vault = null;
 
+if (process.env.BLOCKCHAIN_ENABLED === "true") {
+  const provider = new ethers.JsonRpcProvider(process.env.RPC_URL);
+  const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
+
+  vault = new ethers.Contract(
+    process.env.CONTRACT_ADDRESS,
+    ["function deposit() payable"],
+    wallet
+  );
+}
 /* ================== DONATION ================== */
 app.post("/api/donate/create-order", requireAuth, async (req, res) => {
   const order = await razorpay.orders.create({
@@ -294,8 +299,10 @@ app.post("/api/donate/verify", requireAuth, async (req, res) => {
     });
 
     // Dummy INR → ETH (safe precision)
-    const wei = BigInt(Math.floor((amountINR / 300000) * 1e18));
-    await vault.deposit({ value: wei });
+if (process.env.BLOCKCHAIN_ENABLED === "true" && vault) {
+  const wei = BigInt(Math.floor((amountINR / 300000) * 1e18));
+  await vault.deposit({ value: wei });
+}
 
     writeDB(db);
     res.json({ ok: true });
