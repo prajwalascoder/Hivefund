@@ -26,7 +26,7 @@ const app = express();
 const PORT = process.env.PORT || 4001;
 const __dirname = path.resolve();
 
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: "https://hivefundr.vercel.app"}));
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 
