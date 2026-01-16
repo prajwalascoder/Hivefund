@@ -1,0 +1,211 @@
+{
+  "users": [
+    {
+      "email": "prajwalkarthik01@gmail.com",
+      "password": "Praju@123",
+      "role": "user"
+    },
+    {
+      "email": "prajwal@admin",
+      "password": "Praju@123",
+      "role": "admin"
+    },
+    {
+      "email": "preethamn@gmail.com",
+      "password": "12345678",
+      "role": "user",
+      "profile": {
+        "name": "",
+        "phone": "",
+        "photo": ""
+      },
+      "wallet": {
+        "ethAddress": ""
+      }
+    }
+  ],
+  "pending": [
+    {
+      "id": 30,
+      "title": "car",
+      "description": "for car",
+      "imageUrl": "http://localhost:4001/uploads/1766668908963-21_11th_Gen_Corolla_2014_s.jpg",
+      "creatorEmail": "prajwal@admin",
+      "goal_inr": 9999,
+      "raised_inr": 0,
+      "deadline": "2025-12-31",
+      "status": "pending",
+      "ai": {
+        "ocr_relevant": false,
+        "emotional_blackmail": false,
+        "grammar_score": 0.4
+      },
+      "fraud_probability": 0.3,
+      "trust": {
+        "stars": 2,
+        "risk": "High",
+        "reasons": [
+          "Uploaded documents do not match campaign purpose"
+        ]
+      },
+      "ai_summary": "The campaign \"car\" has no supporting documents uploaded. \nWithout verifiable documents, the system cannot confirm authenticity, \nresulting in a low trust rating.",
+      "documents_count": 1,
+      "created_at": "2025-12-25T13:21:49.812Z"
+    },
+    {
+      "id": 31,
+      "title": "Fo car",
+      "description": "i need car",
+      "imageUrl": "http://localhost:4001/uploads/1766682745542-21_11th_Gen_Corolla_2014_s.jpg",
+      "creatorEmail": "prajwal@admin",
+      "goal_inr": 99999,
+      "deadline": "2025-12-31",
+      "status": "pending",
+      "ai": {
+        "ocr_relevant": false,
+        "emotional_blackmail": false,
+        "grammar_score": 0.4
+      },
+      "fraud_probability": 0.3,
+      "trust": {
+        "stars": 2,
+        "risk": "High",
+        "reasons": [
+          "Uploaded documents do not match campaign purpose"
+        ]
+      },
+      "ai_summary": "The campaign \"Fo car\" has no supporting documents uploaded. \nWithout verifiable documents, the system cannot confirm authenticity, \nresulting in a low trust rating.",
+      "documents_count": 1,
+      "created_at": "2025-12-25T17:12:25.888Z"
+    },
+    {
+      "id": 32,
+      "title": "Prajwal k m needs money for fees",
+      "description": "Im broke need money for college",
+      "imageUrl": "http://localhost:4001/uploads/1768557456482-Solutions-for-Common-Child-Health-Issues-in-Nigeria.png",
+      "creatorEmail": "prajwalkarthik01@gmail.com",
+      "goal_inr": 200000,
+      "raised_inr": 0,
+      "deadline": "2026-02-16",
+      "status": "pending",
+      "ai": {
+        "ocr_relevant": false,
+        "emotional_blackmail": false,
+        "grammar_score": 0.4
+      },
+      "fraud_probability": 0.3,
+      "trust": {
+        "stars": 2,
+        "risk": "High",
+        "reasons": [
+          "Uploaded documents do not match campaign purpose"
+        ]
+      },
+      "ai_summary": "The campaign \"Prajwal k m needs money for fees\" has no supporting documents uploaded. \nWithout verifiable documents, the system cannot confirm authenticity, \nresulting in a low trust rating.",
+      "documents_count": 1,
+      "created_at": "2026-01-16T09:57:36.657Z"
+    }
+  ],
+  "campaigns_meta": [
+    {
+      "metaId": 12,
+      "id": 19,
+      "title": "50 Years Young: Help Fund Emergency Kidney Treatment for Our Dad",
+      "description": "We are asking for urgent support for our father, who is only 50 and suddenly requires emergency treatment for a severe kidney condition. This unexpected health crisis demands immediate and costly medical attention.\n\nOur goal is to raise 10 lakh rupees to cover essential expenses like hospital stays, specialist consultations, and ongoing care to stabilize his health.\n\nHe has so much life left to live. Please join us in this critical effort. Your donation is an investment in his future and his fight for health. Let's get him the care he needs, starting now.",
+      "imageUrl": "http://localhost:4001/uploads/1765875590564-indian-senior-male-having-health-issues-body-pain-suddenly-garden_862994-611706.avif",
+      "creatorEmail": "prajwal@admin",
+      "goal_inr": 1000000,
+      "raised_inr": 0,
+      "deadline": "2026-01-31",
+      "status": "approved",
+      "ai": {
+        "urgency_score": 1,
+        "emotional_score": 0.2,
+        "grammar_score": 1
+      },
+      "fraud_probability": 0.5,
+      "trust": {
+        "stars": 3,
+        "score": 50,
+        "risk_level": "Medium Risk"
+      },
+      "ai_summary": "The campaign description appears linguistically consistent with genuine fundraising requests. The campaign text is clearly written with acceptable grammatical structure. The campaign avoids excessive emotional pressure in its messaging. Uploaded documents lack sufficient official content to strongly verify the campaign claims. Overall, the campaign presents moderate risk and should be approved with caution.",
+      "created_at": "2025-12-16T08:59:50.919Z",
+      "approved_at": "2025-12-16T09:02:39.395Z"
+    }
+  ],
+  "donations": [
+    {
+      "campaignId": "12",
+      "amountINR": 500,
+      "donor": "prajwalkarthik01@gmail.com",
+      "paymentId": "pay_RvqqwO1xX6nII3",
+      "created_at": "2025-12-25T12:54:14.438Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 500,
+      "donor": "prajwal@admin",
+      "paymentId": "pay_RvqzCwv7wI69NH",
+      "created_at": "2025-12-25T13:02:03.951Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 500,
+      "donor": "prajwal@admin",
+      "paymentId": "pay_Rvr5AocUyrP4IZ",
+      "created_at": "2025-12-25T13:07:44.144Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 500,
+      "paymentId": "pay_RvvEB13ZCSwa7i",
+      "donor": "prajwal@admin",
+      "created_at": "2025-12-25T17:11:00.155Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 500,
+      "donor": "prajwalkarthik01@gmail.com",
+      "paymentId": "pay_RvvuOKAqR7OG79",
+      "created_at": "2025-12-25T17:50:59.286Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 500,
+      "donor": "prajwalkarthik01@gmail.com",
+      "paymentId": "pay_Rw7WCUhmUfpo3Z",
+      "created_at": "2025-12-26T05:12:25.127Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 2000,
+      "donor": "prajwalkarthik01@gmail.com",
+      "paymentId": "pay_Rw7fDE9LZTHkKY",
+      "created_at": "2025-12-26T05:20:53.787Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 500,
+      "donor": "prajwalkarthik01@gmail.com",
+      "paymentId": "pay_RxN4Y3Zc92kWqC",
+      "created_at": "2025-12-29T09:04:31.169Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 2000,
+      "donor": "prajwal@admin",
+      "paymentId": "pay_RxNTKR0NzCNS3T",
+      "created_at": "2025-12-29T09:28:00.324Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 500,
+      "donor": "prajwalkarthik01@gmail.com",
+      "paymentId": "pay_S4VXg9GCTiVsWq",
+      "created_at": "2026-01-16T09:54:29.607Z"
+    }
+  ],
+  "nextPendingId": 33,
+  "nextMetaId": 13
+}
