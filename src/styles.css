@@ -1238,3 +1238,138 @@ html {
     line-height: 1.5;
   }
 }
+
+/* =================================================
+   FINAL MOBILE OVERRIDE – HIVEFUND
+   ================================================= */
+@media (max-width: 768px) {
+
+  /* =========================
+     GLOBAL SAFETY
+     ========================= */
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* =========================
+     HEADER / NAVBAR
+     ========================= */
+
+  /* Kill desktop left nav */
+  .hf-left {
+    display: none !important;
+  }
+
+  /* Center logo */
+  .hf-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hf-logo {
+    font-size: 18px;
+    white-space: nowrap;
+  }
+
+  /* Right side controls */
+  .hf-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Desktop-only links OFF */
+  .desktop-only {
+    display: none !important;
+  }
+
+  /* Mobile-only ON */
+  .mobile-only {
+    display: inline-flex !important;
+  }
+
+  .hf-menu-btn {
+    display: inline-flex !important;
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Dropdown menu */
+  .hf-mobile-menu {
+    position: absolute;
+    top: 64px;
+    right: 16px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+  }
+
+  /* =========================
+     HOW IT WORKS – FORCE STACK
+     ========================= */
+  .how-it-works,
+  .how-cards,
+  .how-steps,
+  .how-grid {
+    display: block !important;
+  }
+
+  .how-card,
+  .how-step {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 16px;
+  }
+
+  /* =========================
+     START FUNDRAISER – FORCE STACK
+     ========================= */
+  .fundraiser-container,
+  .create-campaign,
+  .form-preview-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .fundraiser-form {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .campaign-preview {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 24px !important;
+  }
+
+  /* Kill any grid leftovers */
+  .fundraiser-container > *,
+  .form-preview-wrapper > * {
+    grid-column: auto !important;
+  }
+
+  /* =========================
+     FORMS & TEXT
+     ========================= */
+  input,
+  textarea,
+  select,
+  button {
+    width: 100%;
+    font-size: 16px; /* iOS zoom fix */
+  }
+
+  h1 { font-size: 24px; }
+  h2 { font-size: 20px; }
+  p  { font-size: 14px; line-height: 1.5; }
+}
