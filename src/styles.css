@@ -1087,10 +1087,86 @@ html {
   font-weight: 600;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .create-form {
-    grid-template-columns: 1fr;
+
+/* =========================
+   GLOBAL MOBILE FIX (MVP)
+   ========================= */
+@media (max-width: 768px) {
+
+  /* Prevent horizontal scroll */
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* NAVBAR FIX */
+  nav, .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  nav ul, .nav-links {
+    display: none; /* hide menu items on mobile */
+  }
+
+  nav .logo, .navbar .logo {
+    font-size: 18px;
+    margin: 8px auto;
+    white-space: nowrap;
+  }
+
+  /* PAGE CONTAINERS */
+  .container,
+  .page,
+  .content,
+  .main {
+    width: 100%;
+    padding: 16px;
+  }
+
+  /* HOW IT WORKS */
+  .how-it-works,
+  .how-cards {
+    display: block;
+  }
+
+  .how-card {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  /* START FUNDRAISER LAYOUT */
+  .fundraiser-container,
+  .create-campaign,
+  .form-preview-wrapper {
+    display: block;
+  }
+
+  .campaign-preview {
+    margin-top: 24px;
+  }
+
+  /* FORMS */
+  input,
+  textarea,
+  select,
+  button {
+    width: 100%;
+    font-size: 16px; /* iOS zoom fix */
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.5;
   }
 }
 
