@@ -54,6 +54,11 @@ HiveFund is an AI-powered crowdfunding platform designed to improve trust, trans
 
 HiveFund aims to make crowdfunding safer, more reliable, and data-driven by using AI and machine learning to prevent scams, promote genuine causes, and build donor confidence.
 
+
+## Dont start blockchain, it is not yet implemented. 
+Command to start frontend : npm start
+Command to start backend : npm run dev
+
 ##  License
 
 This project is developed for academic and demonstration purposes.
