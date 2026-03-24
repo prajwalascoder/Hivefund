@@ -3,9 +3,6 @@ pragma solidity ^0.8.20;
 
 contract FundVault {
 
-    /* -----------------------------
-        STRUCTS
-    ------------------------------*/
     struct Donation {
         address donor;
         uint256 amount;
@@ -20,19 +17,12 @@ contract FundVault {
         bool withdrawn;
     }
 
-    /* -----------------------------
-        STATE
-    ------------------------------*/
     address public owner;
-
     uint256 public campaignCount;
 
     mapping(uint256 => Campaign) public campaigns;
     mapping(uint256 => Donation[]) public campaignDonations;
 
-    /* -----------------------------
-        EVENTS (ON-CHAIN LOG)
-    ------------------------------*/
     event CampaignCreated(
         uint256 indexed campaignId,
         address indexed creator,
@@ -52,9 +42,6 @@ contract FundVault {
         uint256 amount
     );
 
-    /* -----------------------------
-        MODIFIERS
-    ------------------------------*/
     modifier onlyOwner() {
         require(msg.sender == owner, "Only backend allowed");
         _;
@@ -66,18 +53,18 @@ contract FundVault {
     }
 
     constructor() {
-        owner = msg.sender; // backend wallet
+        owner = msg.sender;
     }
 
-    /* -----------------------------
-        CREATE CAMPAIGN (LEDGER ENTRY)
-        Backend calls this
-    ------------------------------*/
+    /* =========================
+       CREATE CAMPAIGN
+    ==========================*/
     function createCampaign(
         address creator,
         uint256 goal,
         uint256 deadline
     ) external onlyOwner {
+
         require(deadline > block.timestamp, "Invalid deadline");
         require(goal > 0, "Goal must be > 0");
 
@@ -93,10 +80,18 @@ contract FundVault {
         campaignCount++;
     }
 
-    /* -----------------------------
-        DONATE (ON-CHAIN LEDGER)
-        Backend sends ETH here
-    ------------------------------*/
+    /* =========================
+       SIMPLE DEPOSIT (BACKEND COMPATIBLE)
+    ==========================*/
+    function deposit() external payable {
+        require(msg.value > 0, "No ETH sent");
+
+        emit DonationReceived(999, msg.sender, msg.value);
+    }
+
+    /* =========================
+       FULL DONATION LEDGER MODE
+    ==========================*/
     function donate(uint256 campaignId)
         external
         payable
@@ -120,10 +115,9 @@ contract FundVault {
         emit DonationReceived(campaignId, msg.sender, msg.value);
     }
 
-    /* -----------------------------
-        WITHDRAW FUNDS
-        Auto-rule enforced
-    ------------------------------*/
+    /* =========================
+       WITHDRAW
+    ==========================*/
     function withdraw(uint256 campaignId)
         external
         campaignExists(campaignId)
@@ -147,9 +141,6 @@ contract FundVault {
         emit FundsWithdrawn(campaignId, c.creator, amount);
     }
 
-    /* -----------------------------
-        VIEW FUNCTIONS (FOR UI)
-    ------------------------------*/
     function getDonations(uint256 campaignId)
         external
         view

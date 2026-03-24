@@ -38,8 +38,8 @@
       ]
     },
     "C:\\Users\\prajw\\hivefund\\hivefund-blockchain\\contracts\\FundVault.sol": {
-      "lastModificationDate": 1766654470953,
-      "contentHash": "1eb698745d9dc1e654080b9166da249e",
+      "lastModificationDate": 1770792268299,
+      "contentHash": "b6f3368700437c82c30ff21f285e3e96",
       "sourceName": "contracts/FundVault.sol",
       "solcConfig": {
         "version": "0.8.24",
@@ -67,7 +67,7 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8.24"
+        "^0.8.20"
       ],
       "artifacts": [
         "FundVault"

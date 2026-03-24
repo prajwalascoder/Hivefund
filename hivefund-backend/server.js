@@ -20,6 +20,9 @@ import { calculateTrustScore } from "./services/trustScoreService.js";
 import { generateAISummary } from "./services/aiSummaryService.js";
 
 dotenv.config();
+console.log("Loaded ENV from:", process.cwd());
+console.log("BLOCKCHAIN_ENABLED:", process.env.BLOCKCHAIN_ENABLED);
+
 
 /* ================== BASIC SETUP ================== */
 const app = express();
@@ -298,8 +301,44 @@ app.post("/api/donate/verify", requireAuth, async (req, res) => {
 
     // Dummy INR → ETH (safe precision)
 if (process.env.BLOCKCHAIN_ENABLED === "true" && vault) {
-  const wei = BigInt(Math.floor((amountINR / 300000) * 1e18));
-  await vault.deposit({ value: wei });
+
+  console.log("🔗 Blockchain donation started...");
+
+  const ETH_RATE = 300000; // Replace with live API later
+
+  const ethAmount = amountINR / ETH_RATE;
+  const weiAmount = ethers.parseEther(ethAmount.toFixed(6));
+
+  console.log("💰 INR:", amountINR);
+  console.log("💱 ETH:", ethAmount);
+  console.log("⚙️ Wei:", weiAmount.toString());
+
+  const gasEstimate = await vault.deposit.estimateGas({
+    value: weiAmount
+  });
+
+  const feeData = await vault.runner.provider.getFeeData();
+  const gasPrice = feeData.gasPrice;
+
+  const tx = await vault.deposit({
+    value: weiAmount,
+    gasLimit: gasEstimate
+  });
+
+  console.log("🚀 TX Hash:", tx.hash);
+
+  const receipt = await tx.wait();
+
+  console.log(`
+====== BLOCKCHAIN TRANSACTION ======
+Campaign ID: ${campaignId}
+Donor: ${req.user.email}
+INR: ${amountINR}
+ETH: ${ethAmount}
+Block: ${receipt.blockNumber}
+Gas Used: ${receipt.gasUsed.toString()}
+====================================
+`);
 }
 
     writeDB(db);
@@ -400,10 +439,20 @@ app.post("/api/campaign/:id/withdraw", requireAuth, async (req, res) => {
     const ETH_RATE = 300000;
     const eth = (campaign.raised_inr / ETH_RATE).toFixed(6);
 
-    await vault.withdraw(
-      campaign.wallet,
-      ethers.parseEther(eth)
-    );
+    console.log("🔐 Withdrawal started...");
+
+const tx = await vault.withdraw(
+  campaign.wallet,
+  ethers.parseEther(eth)
+);
+
+console.log("🚀 Withdraw TX:", tx.hash);
+
+const receipt = await tx.wait();
+
+console.log("✅ Withdraw Confirmed at Block:", receipt.blockNumber);
+console.log("⛽ Gas Used:", receipt.gasUsed.toString());
+
 
     campaign.withdrawn = true;
     campaign.withdrawn_at = new Date().toISOString();

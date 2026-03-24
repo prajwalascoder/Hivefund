@@ -1,5 +1,11 @@
 {
+  "name": "hivefund-backend",
+  "version": "1.0.0",
   "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "crypto": "^1.0.1",

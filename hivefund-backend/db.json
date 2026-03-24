@@ -26,67 +26,14 @@
   ],
   "pending": [
     {
-      "id": 30,
-      "title": "car",
-      "description": "for car",
-      "imageUrl": "http://localhost:4001/uploads/1766668908963-21_11th_Gen_Corolla_2014_s.jpg",
-      "creatorEmail": "prajwal@admin",
-      "goal_inr": 9999,
-      "raised_inr": 0,
-      "deadline": "2025-12-31",
-      "status": "pending",
-      "ai": {
-        "ocr_relevant": false,
-        "emotional_blackmail": false,
-        "grammar_score": 0.4
-      },
-      "fraud_probability": 0.3,
-      "trust": {
-        "stars": 2,
-        "risk": "High",
-        "reasons": [
-          "Uploaded documents do not match campaign purpose"
-        ]
-      },
-      "ai_summary": "The campaign \"car\" has no supporting documents uploaded. \nWithout verifiable documents, the system cannot confirm authenticity, \nresulting in a low trust rating.",
-      "documents_count": 1,
-      "created_at": "2025-12-25T13:21:49.812Z"
-    },
-    {
-      "id": 31,
-      "title": "Fo car",
-      "description": "i need car",
-      "imageUrl": "http://localhost:4001/uploads/1766682745542-21_11th_Gen_Corolla_2014_s.jpg",
-      "creatorEmail": "prajwal@admin",
-      "goal_inr": 99999,
-      "deadline": "2025-12-31",
-      "status": "pending",
-      "ai": {
-        "ocr_relevant": false,
-        "emotional_blackmail": false,
-        "grammar_score": 0.4
-      },
-      "fraud_probability": 0.3,
-      "trust": {
-        "stars": 2,
-        "risk": "High",
-        "reasons": [
-          "Uploaded documents do not match campaign purpose"
-        ]
-      },
-      "ai_summary": "The campaign \"Fo car\" has no supporting documents uploaded. \nWithout verifiable documents, the system cannot confirm authenticity, \nresulting in a low trust rating.",
-      "documents_count": 1,
-      "created_at": "2025-12-25T17:12:25.888Z"
-    },
-    {
-      "id": 32,
-      "title": "Prajwal k m needs money for fees",
-      "description": "Im broke need money for college",
-      "imageUrl": "http://localhost:4001/uploads/1768557456482-Solutions-for-Common-Child-Health-Issues-in-Nigeria.png",
+      "id": 35,
+      "title": "Money needed for education",
+      "description": "Im broke, can u spare me money guys",
+      "imageUrl": "http://localhost:4001/uploads/1770802926342-image.webp",
       "creatorEmail": "prajwalkarthik01@gmail.com",
-      "goal_inr": 200000,
+      "goal_inr": 259999,
       "raised_inr": 0,
-      "deadline": "2026-02-16",
+      "deadline": "2026-02-28",
       "status": "pending",
       "ai": {
         "ocr_relevant": false,
@@ -95,15 +42,69 @@
       },
       "fraud_probability": 0.3,
       "trust": {
-        "stars": 2,
-        "risk": "High",
+        "stars": 1,
+        "risk": "Very High",
         "reasons": [
-          "Uploaded documents do not match campaign purpose"
+          "No supporting documents uploaded"
         ]
       },
-      "ai_summary": "The campaign \"Prajwal k m needs money for fees\" has no supporting documents uploaded. \nWithout verifiable documents, the system cannot confirm authenticity, \nresulting in a low trust rating.",
-      "documents_count": 1,
-      "created_at": "2026-01-16T09:57:36.657Z"
+      "ai_summary": "The campaign \"Money needed for education\" has no supporting documents uploaded. \nWithout verifiable documents, the system cannot confirm authenticity, \nresulting in a low trust rating.",
+      "documents_count": 0,
+      "created_at": "2026-02-11T09:42:07.073Z"
+    },
+    {
+      "id": 36,
+      "title": "I need money for education",
+      "description": "education",
+      "imageUrl": "http://localhost:4001/uploads/1770896321074-image.webp",
+      "creatorEmail": "prajwalkarthik01@gmail.com",
+      "goal_inr": 260000,
+      "raised_inr": 0,
+      "deadline": "2026-03-31",
+      "status": "pending",
+      "ai": {
+        "ocr_relevant": false,
+        "emotional_blackmail": false,
+        "grammar_score": 0.4
+      },
+      "fraud_probability": 0.3,
+      "trust": {
+        "stars": 1,
+        "risk": "Very High",
+        "reasons": [
+          "No supporting documents uploaded"
+        ]
+      },
+      "ai_summary": "The campaign \"I need money for education\" has no supporting documents uploaded. \nWithout verifiable documents, the system cannot confirm authenticity, \nresulting in a low trust rating.",
+      "documents_count": 0,
+      "created_at": "2026-02-12T11:38:41.577Z"
+    },
+    {
+      "id": 37,
+      "title": "i need money for travel",
+      "description": "travel",
+      "imageUrl": "http://localhost:4001/uploads/1770897408915-1751429539435.jpg",
+      "creatorEmail": "prajwalkarthik01@gmail.com",
+      "goal_inr": 199999,
+      "raised_inr": 0,
+      "deadline": "2026-02-28",
+      "status": "pending",
+      "ai": {
+        "ocr_relevant": false,
+        "emotional_blackmail": false,
+        "grammar_score": 0.4
+      },
+      "fraud_probability": 0.3,
+      "trust": {
+        "stars": 1,
+        "risk": "Very High",
+        "reasons": [
+          "No supporting documents uploaded"
+        ]
+      },
+      "ai_summary": "The campaign \"i need money for travel\" has no supporting documents uploaded. \nWithout verifiable documents, the system cannot confirm authenticity, \nresulting in a low trust rating.",
+      "documents_count": 0,
+      "created_at": "2026-02-12T11:56:49.392Z"
     }
   ],
   "campaigns_meta": [
@@ -211,8 +212,85 @@
       "donor": "prajwalkarthik01@gmail.com",
       "paymentId": "pay_S4cfokZCoWdVuD",
       "created_at": "2026-01-16T16:53:03.851Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 500,
+      "donor": "prajwalkarthik01@gmail.com",
+      "paymentId": "pay_SEjFUJLRHRbx2K",
+      "created_at": "2026-02-11T05:49:16.383Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 500,
+      "donor": "prajwal@admin",
+      "paymentId": "pay_SEjf68vPserM5r",
+      "created_at": "2026-02-11T06:13:22.789Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 1000,
+      "donor": "prajwal@admin",
+      "paymentId": "pay_SEjhxTTGNMO4rO",
+      "created_at": "2026-02-11T06:16:27.030Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 1000,
+      "donor": "prajwalkarthik01@gmail.com",
+      "paymentId": "pay_SEkE0Ohg2SPbCD",
+      "created_at": "2026-02-11T06:46:24.521Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 500,
+      "donor": "prajwalkarthik01@gmail.com",
+      "paymentId": "pay_SF5XSUJLfJOMvX",
+      "created_at": "2026-02-12T03:37:19.985Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 500,
+      "donor": "prajwalkarthik01@gmail.com",
+      "paymentId": "pay_SF5vKjqaQwQjks",
+      "created_at": "2026-02-12T03:59:57.021Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 500,
+      "donor": "prajwalkarthik01@gmail.com",
+      "paymentId": "pay_SF62xcseGEBUvZ",
+      "created_at": "2026-02-12T04:07:10.070Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 500,
+      "donor": "prajwalkarthik01@gmail.com",
+      "paymentId": "pay_SFAkzrLCDjTW4L",
+      "created_at": "2026-02-12T08:43:36.629Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 1000,
+      "donor": "prajwal@admin",
+      "paymentId": "pay_SFDmiXf6yLQmL4",
+      "created_at": "2026-02-12T11:41:18.815Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 500,
+      "donor": "prajwalkarthik01@gmail.com",
+      "paymentId": "pay_SGgqpYAOBCZ71R",
+      "created_at": "2026-02-16T04:46:11.819Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 2000,
+      "donor": "prajwalkarthik01@gmail.com",
+      "paymentId": "pay_SV0ceZ0BS6MGrR",
+      "created_at": "2026-03-24T09:12:25.254Z"
     }
   ],
-  "nextPendingId": 33,
+  "nextPendingId": 38,
   "nextMetaId": 13
 }
