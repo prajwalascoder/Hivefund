@@ -11,7 +11,16 @@ export function calculateTrustScore(ai, fraudProbability = 0, documentCount = 0)
     };
   }
 
-  // 2️⃣ Documents present but OCR NOT relevant
+  // 2️⃣ Fake Document keywords detected
+  if (ai.ocr_suspicious) {
+    return {
+      stars: 1,
+      risk: "Extreme",
+      reasons: ["Critical: Uploaded document contains 'fake' or 'sample' text flags"]
+    };
+  }
+
+  // 3️⃣ Documents present but OCR NOT relevant
   if (!ai.ocr_relevant) {
     return {
       stars: 2,

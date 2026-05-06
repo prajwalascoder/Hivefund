@@ -1,9 +1,8 @@
-// src/pages/CreatePage.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const BACKEND = "http://localhost:4001";
+const BACKEND = import.meta.env.VITE_BACKEND || "http://localhost:4001";
 
 export default function CreatePage() {
   const nav = useNavigate();
@@ -12,10 +11,34 @@ export default function CreatePage() {
   const [description, setDescription] = useState("");
   const [goalINR, setGoalINR] = useState("");
   const [deadline, setDeadline] = useState("");
+  const [category, setCategory] = useState("Other");
+  const [categories, setCategories] = useState([]);
   const [imageFile, setImageFile] = useState(null);
   const [documents, setDocuments] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  /* ---------------- FETCH CATEGORIES ---------------- */
+  useEffect(() => {
+    axios.get(`${BACKEND}/api/categories`)
+      .then(res => setCategories(res.data || []))
+      .catch(() => setCategories(["Medical", "Education", "Emergency", "Community", "Other"]));
+  }, []);
+
+  /* ---------------- PROFILE CHECK ---------------- */
+  useEffect(() => {
+    const token = localStorage.getItem("hf_token");
+    if (token) {
+      axios.get(`${BACKEND}/api/dashboard/me`, { headers: { Authorization: `Bearer ${token}` } })
+        .then(res => {
+          const p = res.data?.user?.profile;
+          if (!p || !p.name || !p.gender || !p.dob || !p.country || !p.mobile) {
+            alert("Please complete your profile inside the Dashboard before creating a campaign.");
+            nav("/dashboard");
+          }
+        }).catch(console.error);
+    }
+  }, [nav]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -38,6 +61,7 @@ export default function CreatePage() {
       fd.append("description", description);
       fd.append("goal_inr", goalINR);
       fd.append("deadline", deadline);
+      fd.append("category", category);
 
       if (imageFile) fd.append("image", imageFile);
       documents.forEach(doc => fd.append("documents", doc));
@@ -86,6 +110,25 @@ export default function CreatePage() {
                 placeholder="Short campaign title"
               />
 
+              <label className="lbl" style={{ marginTop: 12 }}>Category</label>
+              <select
+                className="input"
+                value={category}
+                onChange={e => setCategory(e.target.value)}
+                style={{
+                  padding: "10px 14px",
+                  borderRadius: 10,
+                  border: "1px solid #e2e8f0",
+                  fontSize: 14,
+                  background: "#fff",
+                  cursor: "pointer"
+                }}
+              >
+                {categories.map(cat => (
+                  <option key={cat} value={cat}>{cat}</option>
+                ))}
+              </select>
+
               <label className="lbl" style={{ marginTop: 12 }}>
                 Description
               </label>
@@ -117,6 +160,7 @@ export default function CreatePage() {
                 type="date"
                 className="input"
                 value={deadline}
+                min={new Date(Date.now() + 86400000).toISOString().split("T")[0]}
                 onChange={e => setDeadline(e.target.value)}
               />
 

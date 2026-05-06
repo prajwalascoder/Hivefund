@@ -13,21 +13,30 @@ export default function Donate() {
   const [amount, setAmount] = useState(500);
   const [custom, setCustom] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isAnonymous, setIsAnonymous] = useState(false);
+
+  /* ---------------- PROFILE CHECK ---------------- */
+  useEffect(() => {
+    const token = localStorage.getItem("hf_token");
+    if (token) {
+      axios.get(`${BACKEND}/api/dashboard/me`, { headers: { Authorization: `Bearer ${token}` } })
+        .then(res => {
+          const p = res.data?.user?.profile;
+          if (!p || !p.name || !p.gender || !p.dob || !p.country || !p.mobile) {
+            alert("Please complete your profile inside the Dashboard before making a donation.");
+            nav("/dashboard");
+          }
+        }).catch(console.error);
+    }
+  }, [nav]);
 
   /* ---------------- FETCH CAMPAIGN ---------------- */
   useEffect(() => {
     let cancelled = false;
 
-    axios.get(`${BACKEND}/api/approved`)
+    axios.get(`${BACKEND}/api/campaign/${id}`)
       .then(res => {
-        if (cancelled) return;
-        const list = res.data || [];
-        const found = list.find(
-          c =>
-            String(c.metaId) === String(id) ||
-            String(c.campaignId) === String(id)
-        );
-        setCampaign(found || null);
+        if (!cancelled) setCampaign(res.data || null);
       })
       .catch(() => {
         if (!cancelled) setCampaign(null);
@@ -108,7 +117,8 @@ export default function Donate() {
                 razorpay_payment_id: response.razorpay_payment_id,
                 razorpay_signature: response.razorpay_signature,
                 campaignId: id,
-                amountINR: useAmount
+                amountINR: useAmount,
+                isAnonymous
               },
               { headers: { Authorization: `Bearer ${localStorage.getItem("hf_token")}` } }
             );
@@ -184,6 +194,19 @@ export default function Donate() {
               marginTop: 6
             }}
           />
+        </div>
+
+        {/* Anonymous toggle */}
+        <div style={{ marginBottom: 14 }}>
+          <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer" }}>
+            <input 
+              type="checkbox" 
+              checked={isAnonymous} 
+              onChange={e => setIsAnonymous(e.target.checked)} 
+              style={{ width: 18, height: 18 }} 
+            />
+            Donate anonymously (Hide my name)
+          </label>
         </div>
 
         {/* Donate button */}

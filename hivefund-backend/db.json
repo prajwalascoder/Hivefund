@@ -3,7 +3,19 @@
     {
       "email": "prajwalkarthik01@gmail.com",
       "password": "Praju@123",
-      "role": "user"
+      "role": "user",
+      "isAnonymous": false,
+      "wallet": {
+        "ethAddress": ""
+      },
+      "bankAccount": {},
+      "profile": {
+        "name": "Prajwal K M",
+        "gender": "Male",
+        "dob": "2003-05-06",
+        "country": "India",
+        "mobile": "+918310689729"
+      }
     },
     {
       "email": "prajwal@admin",
@@ -26,85 +38,113 @@
   ],
   "pending": [
     {
-      "id": 35,
-      "title": "Money needed for education",
-      "description": "Im broke, can u spare me money guys",
-      "imageUrl": "http://localhost:4001/uploads/1770802926342-image.webp",
+      "id": 41,
+      "title": "I need money",
+      "description": "for hospital bill",
+      "imageUrl": "http://localhost:4001/uploads/1774351763601-171075-anime-levi_ackerman-attack_on_titan-mikasa_ackerman-armin_arlert-1554x942.png",
       "creatorEmail": "prajwalkarthik01@gmail.com",
-      "goal_inr": 259999,
+      "goal_inr": 99995,
       "raised_inr": 0,
-      "deadline": "2026-02-28",
+      "deadline": "2002-09-29",
       "status": "pending",
       "ai": {
-        "ocr_relevant": false,
+        "ocr_relevant": true,
         "emotional_blackmail": false,
         "grammar_score": 0.4
       },
-      "fraud_probability": 0.3,
+      "fraud_probability": 0,
       "trust": {
-        "stars": 1,
-        "risk": "Very High",
+        "stars": 3,
+        "risk": "Medium",
         "reasons": [
-          "No supporting documents uploaded"
+          "Poor linguistic structure"
         ]
       },
-      "ai_summary": "The campaign \"Money needed for education\" has no supporting documents uploaded. \nWithout verifiable documents, the system cannot confirm authenticity, \nresulting in a low trust rating.",
-      "documents_count": 0,
-      "created_at": "2026-02-11T09:42:07.073Z"
+      "ai_summary": "The campaign \"I need money\" includes relevant documents, however the \ndescription quality and structure raise concerns. Ambiguous language and poor \nclarity reduce overall trust.",
+      "documents_count": 1,
+      "created_at": "2026-03-24T11:29:26.288Z"
     },
     {
-      "id": 36,
-      "title": "I need money for education",
-      "description": "education",
-      "imageUrl": "http://localhost:4001/uploads/1770896321074-image.webp",
+      "id": 42,
+      "title": "Emergency Medical Expenses Support",
+      "description": "I am currently facing urgent medical expenses due to hospitalization. The cost of treatment, medicines, and hospital care has become difficult to manage. Any contribution, big or small, will help cover these expenses and support my recovery. Your support means a lot during this critical time.\r\n\r\n",
+      "imageUrl": "http://localhost:4001/uploads/1774352082802-171075-anime-levi_ackerman-attack_on_titan-mikasa_ackerman-armin_arlert-1554x942.png",
       "creatorEmail": "prajwalkarthik01@gmail.com",
-      "goal_inr": 260000,
+      "goal_inr": 100000,
       "raised_inr": 0,
-      "deadline": "2026-03-31",
+      "deadline": "2026-04-29",
       "status": "pending",
       "ai": {
-        "ocr_relevant": false,
-        "emotional_blackmail": false,
-        "grammar_score": 0.4
+        "ocr_relevant": true,
+        "emotional_blackmail": true,
+        "grammar_score": 0.8
       },
-      "fraud_probability": 0.3,
+      "fraud_probability": 0,
       "trust": {
-        "stars": 1,
-        "risk": "Very High",
+        "stars": 3,
+        "risk": "Medium",
         "reasons": [
-          "No supporting documents uploaded"
+          "Emotional manipulation detected"
         ]
       },
-      "ai_summary": "The campaign \"I need money for education\" has no supporting documents uploaded. \nWithout verifiable documents, the system cannot confirm authenticity, \nresulting in a low trust rating.",
-      "documents_count": 0,
-      "created_at": "2026-02-12T11:38:41.577Z"
+      "ai_summary": "The campaign \"Emergency Medical Expenses Support\" is supported by a verified document and \nclear description. While credibility is high, additional documentation could \nfurther strengthen trust.",
+      "documents_count": 1,
+      "created_at": "2026-03-24T11:34:43.909Z"
     },
     {
-      "id": 37,
-      "title": "i need money for travel",
-      "description": "travel",
-      "imageUrl": "http://localhost:4001/uploads/1770897408915-1751429539435.jpg",
+      "id": 43,
+      "title": "Emergency Medical Expenses Support",
+      "description": "I am currently facing urgent medical expenses due to hospitalization. The cost of treatment, medicines, and hospital care has become difficult to manage. Any contribution, big or small, will help cover these expenses and support my recovery. Your support means a lot during this critical time.\r\n\r\n",
+      "imageUrl": "http://localhost:4001/uploads/1774352322865-171075-anime-levi_ackerman-attack_on_titan-mikasa_ackerman-armin_arlert-1554x942.png",
       "creatorEmail": "prajwalkarthik01@gmail.com",
-      "goal_inr": 199999,
+      "goal_inr": 100000,
       "raised_inr": 0,
-      "deadline": "2026-02-28",
+      "deadline": "2026-04-29",
       "status": "pending",
       "ai": {
-        "ocr_relevant": false,
-        "emotional_blackmail": false,
-        "grammar_score": 0.4
+        "ocr_relevant": true,
+        "emotional_blackmail": true,
+        "grammar_score": 0.8
       },
-      "fraud_probability": 0.3,
+      "fraud_probability": 0,
       "trust": {
-        "stars": 1,
-        "risk": "Very High",
+        "stars": 3,
+        "risk": "Medium",
         "reasons": [
-          "No supporting documents uploaded"
+          "Emotional manipulation detected"
         ]
       },
-      "ai_summary": "The campaign \"i need money for travel\" has no supporting documents uploaded. \nWithout verifiable documents, the system cannot confirm authenticity, \nresulting in a low trust rating.",
-      "documents_count": 0,
-      "created_at": "2026-02-12T11:56:49.392Z"
+      "ai_summary": "The campaign \"Emergency Medical Expenses Support\" is well-documented with multiple verified \ndocuments and a clear, well-written description. Extracted records align with \nthe stated purpose, indicating strong legitimacy and low fraud risk.",
+      "documents_count": 2,
+      "created_at": "2026-03-24T11:38:44.815Z"
+    },
+    {
+      "id": 44,
+      "title": "Emergency Medical Expenses Support",
+      "description": "I am currently facing urgent medical expenses due to hospitalization. The cost of treatment, medicines, and hospital care has become difficult to manage. Any contribution, big or small, will help cover these expenses and support my recovery. Your support means a lot during this critical time.",
+      "imageUrl": "http://localhost:4001/uploads/1774352747928-171075-anime-levi_ackerman-attack_on_titan-mikasa_ackerman-armin_arlert-1554x942.png",
+      "creatorEmail": "prajwalkarthik01@gmail.com",
+      "goal_inr": 100000,
+      "raised_inr": 0,
+      "deadline": "2026-04-29",
+      "status": "pending",
+      "ai": {
+        "ocr_relevant": true,
+        "ocr_suspicious": false,
+        "emotional_blackmail": true,
+        "grammar_score": 0.8
+      },
+      "fraud_probability": 0,
+      "trust": {
+        "stars": 3,
+        "risk": "Medium",
+        "reasons": [
+          "Emotional manipulation detected"
+        ]
+      },
+      "ai_summary": "The campaign \"Emergency Medical Expenses Support\" is well-documented with multiple verified \ndocuments and a clear, well-written description. Extracted records align with \nthe stated purpose, indicating strong legitimacy and low fraud risk.",
+      "documents_count": 2,
+      "created_at": "2026-03-24T11:45:50.593Z"
     }
   ],
   "campaigns_meta": [
@@ -289,8 +329,16 @@
       "donor": "prajwalkarthik01@gmail.com",
       "paymentId": "pay_SV0ceZ0BS6MGrR",
       "created_at": "2026-03-24T09:12:25.254Z"
+    },
+    {
+      "campaignId": "12",
+      "amountINR": 2000,
+      "donor": "prajwalkarthik01@gmail.com",
+      "paymentId": "pay_SV3JliEJPLR4PY",
+      "isAnonymous": false,
+      "created_at": "2026-03-24T11:50:38.632Z"
     }
   ],
-  "nextPendingId": 38,
+  "nextPendingId": 45,
   "nextMetaId": 13
 }

@@ -9,7 +9,13 @@ export function extractAIFeatures(description = "", ocrText = "") {
     "admission", "diagnosis"
   ];
 
+  const suspiciousKeywords = [
+    "fake", "forged", "sample", "template", "scam",
+    "dummy", "lorem ipsum", "invalid"
+  ];
+
   const ocrRelevant = importantKeywords.some(word => ocr.includes(word));
+  const ocrSuspicious = suspiciousKeywords.some(word => ocr.includes(word));
 
   const emotionalWords = [
     "urgent", "immediately", "please help",
@@ -28,6 +34,7 @@ export function extractAIFeatures(description = "", ocrText = "") {
 
   return {
     ocr_relevant: ocrRelevant,
+    ocr_suspicious: ocrSuspicious,
     emotional_blackmail: emotionalBlackmail,
     grammar_score: grammarScore
   };

@@ -5,27 +5,54 @@ import { useNavigate } from "react-router-dom";
 
 const BACKEND = import.meta.env.VITE_BACKEND || "http://localhost:4001";
 
-function resolveImageUrl(imageUrl) {
-  if (!imageUrl) return "/placeholder-campaign.png";
-  if (imageUrl.startsWith("http")) return imageUrl;
-  return `${BACKEND}${imageUrl}`;
+function resolveImageUrl(campaign) {
+  if (!campaign.imageUrl) return "/placeholder-campaign.png";
+  if (campaign.imageUrl.startsWith("http")) return campaign.imageUrl;
+  return `${BACKEND}${campaign.imageUrl}`;
 }
+
+const CATEGORY_ICONS = {
+  "All":                  "🌐",
+  "Medical":              "🏥",
+  "Education":            "📚",
+  "Emergency":            "🚨",
+  "Community":            "🏘️",
+  "Environment":          "🌿",
+  "Animal Welfare":       "🐾",
+  "Technology":           "💻",
+  "Creative & Arts":      "🎨",
+  "Sports":               "⚽",
+  "Religious & Spiritual":"🙏",
+  "Startup & Business":   "🚀",
+  "Disaster Relief":      "🆘",
+  "Other":                "📌"
+};
 
 export default function Campaigns() {
   const [campaigns, setCampaigns] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [activeCategory, setActiveCategory] = useState("All");
   const [q, setQ] = useState("");
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  /* 🔄 ALWAYS FETCH LATEST DATA */
+  /* 🔄 FETCH CATEGORIES */
+  useEffect(() => {
+    axios.get(`${BACKEND}/api/categories`)
+      .then(res => setCategories(["All", ...(res.data || [])]))
+      .catch(() => setCategories(["All"]));
+  }, []);
+
+  /* 🔄 FETCH CAMPAIGNS */
   useEffect(() => {
     fetchCampaigns();
-  }, []);
+  }, [activeCategory]);
 
   async function fetchCampaigns() {
     try {
       setLoading(true);
-      const res = await axios.get(`${BACKEND}/api/approved`);
+      const params = activeCategory !== "All" ? { category: activeCategory } : {};
+      const res = await axios.get(`${BACKEND}/api/approved`, { params });
       setCampaigns(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error("Campaign fetch failed", err);
@@ -43,7 +70,7 @@ export default function Campaigns() {
   }, [campaigns, q]);
 
   return (
-    <div style={{ background: "#f8fafc", minHeight: "100vh" }}>
+    <div className="page-transition" style={{ background: "#f8fafc", minHeight: "100vh" }}>
       {/* 🔷 HERO HEADER */}
       <div style={{
         padding: "40px 16px 28px",
@@ -81,6 +108,47 @@ export default function Campaigns() {
         />
       </div>
 
+      {/* 📂 CATEGORY FILTER */}
+      <div style={{
+        maxWidth: 1200,
+        margin: "0 auto",
+        padding: "0 16px 16px",
+        overflowX: "auto"
+      }}>
+        <div style={{
+          display: "flex",
+          gap: 8,
+          flexWrap: "wrap",
+          justifyContent: "center"
+        }}>
+          {categories.map(cat => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              style={{
+                padding: "8px 16px",
+                borderRadius: 20,
+                border: activeCategory === cat ? "2px solid #16a34a" : "1px solid #e2e8f0",
+                background: activeCategory === cat
+                  ? "linear-gradient(135deg, #22c55e, #16a34a)"
+                  : "#fff",
+                color: activeCategory === cat ? "#fff" : "#475569",
+                fontWeight: activeCategory === cat ? 700 : 500,
+                fontSize: 13,
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+                whiteSpace: "nowrap",
+                boxShadow: activeCategory === cat
+                  ? "0 4px 12px rgba(22,163,74,0.3)"
+                  : "0 1px 3px rgba(0,0,0,0.05)"
+              }}
+            >
+              {CATEGORY_ICONS[cat] || "📌"} {cat}
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* 🔳 CAMPAIGN GRID */}
       <div style={{
         maxWidth: 1200,
@@ -105,8 +173,8 @@ export default function Campaigns() {
               return (
                 /* 🔥 ENTIRE CARD CLICKABLE */
                 <div
-                  key={c.metaId}
-                  onClick={() => navigate(`/campaign/${c.metaId}/donate`)}
+                  key={c._id || c.metaId}
+                  onClick={() => navigate(`/campaign/${c.metaId || c._id}/donate`)}
                   style={{
                     cursor: "pointer",
                     background: "#fff",
@@ -118,7 +186,7 @@ export default function Campaigns() {
                 >
                   {/* IMAGE */}
                   <img
-                    src={resolveImageUrl(c.imageUrl)}
+                    src={resolveImageUrl(c)}
                     alt={c.title}
                     style={{
                       width: "100%",
@@ -129,6 +197,23 @@ export default function Campaigns() {
 
                   {/* BODY */}
                   <div style={{ padding: 16 }}>
+                    {/* CATEGORY BADGE */}
+                    {c.category && c.category !== "Other" && (
+                      <div style={{
+                        display: "inline-block",
+                        padding: "3px 10px",
+                        borderRadius: 12,
+                        background: "#f0fdf4",
+                        color: "#16a34a",
+                        fontSize: 11,
+                        fontWeight: 600,
+                        marginBottom: 8,
+                        letterSpacing: 0.3
+                      }}>
+                        {CATEGORY_ICONS[c.category] || "📌"} {c.category}
+                      </div>
+                    )}
+
                     <h3 style={{
                       fontSize: 18,
                       fontWeight: 700,

@@ -1,10 +1,12 @@
 // services/mlService.js
 import { execSync } from "child_process";
+import path from "path";
 
 export function getFraudProbabilityFromText(text) {
   try {
+    const scriptPath = path.join(process.cwd(), "..", "hivefund-ml", "predict.py");
     const output = execSync(
-      "python hivefund-ml/predict.py",
+      `python "${scriptPath}"`,
       { input: JSON.stringify({ text }) }
     ).toString();
 
