@@ -24,3 +24,18 @@ dist-ssr
 *.sw?
 
 .env
+# Uploads
+hivefund-backend/uploads/
+
+# ML models
+hivefund-ml/*.joblib
+
+# Blockchain generated files
+hivefund-blockchain/artifacts/
+hivefund-blockchain/cache/
+
+# Misc
+New Text Document.txt
+
+# Backend env (already have .env but adding specific path too)
+hivefund-backend/.env

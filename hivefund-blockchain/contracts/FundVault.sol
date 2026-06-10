@@ -56,7 +56,7 @@ contract FundVault {
         owner = msg.sender;
     }
 
-    /* =========================
+   
        CREATE CAMPAIGN
     ==========================*/
     function createCampaign(
@@ -80,7 +80,7 @@ contract FundVault {
         campaignCount++;
     }
 
-    /* =========================
+  
        SIMPLE DEPOSIT (BACKEND COMPATIBLE)
     ==========================*/
     function deposit() external payable {
@@ -89,7 +89,7 @@ contract FundVault {
         emit DonationReceived(999, msg.sender, msg.value);
     }
 
-    /* =========================
+
        FULL DONATION LEDGER MODE
     ==========================*/
     function donate(uint256 campaignId)
@@ -115,7 +115,7 @@ contract FundVault {
         emit DonationReceived(campaignId, msg.sender, msg.value);
     }
 
-    /* =========================
+   
        WITHDRAW
     ==========================*/
     function withdraw(uint256 campaignId)

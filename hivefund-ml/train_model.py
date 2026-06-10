@@ -65,7 +65,7 @@ print("✅ Loaded phishing dataset (feature-to-text converted)")
 df = pd.concat([jobs, sms, phish], ignore_index=True)
 df = df.dropna()
 
-print(f"📊 Total samples loaded: {len(df)}")
+print("✅ Datasets merged successfully")
 
 X = df["text"]
 y = df["label"]
