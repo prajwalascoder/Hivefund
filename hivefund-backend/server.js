@@ -401,10 +401,16 @@ app.get("/api/campaign/:id/image", async (req, res) => {
 });
 
 /* ================== RAZORPAY ================== */
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID,
-  key_secret: process.env.RAZORPAY_KEY_SECRET
-});
+let razorpay = null;
+if (process.env.RAZORPAY_KEY_ID && process.env.RAZORPAY_KEY_SECRET) {
+  razorpay = new Razorpay({
+    key_id: process.env.RAZORPAY_KEY_ID,
+    key_secret: process.env.RAZORPAY_KEY_SECRET
+  });
+  console.log("✅ Razorpay initialized");
+} else {
+  console.warn("⚠️  Razorpay keys not found — payment routes will be disabled");
+}
 
 /* ================== BLOCKCHAIN ================== */
 let vault = null;
@@ -422,6 +428,7 @@ if (process.env.BLOCKCHAIN_ENABLED === "true") {
 
 /* ================== DONATION ================== */
 app.post("/api/donate/create-order", requireAuth, async (req, res) => {
+  if (!razorpay) return res.status(503).json({ error: "Razorpay not configured" });
   const order = await razorpay.orders.create({
     amount: req.body.amountINR * 100,
     currency: "INR",
