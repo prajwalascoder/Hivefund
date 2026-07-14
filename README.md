@@ -55,9 +55,32 @@ HiveFund is an AI-powered crowdfunding platform designed to improve trust, trans
 HiveFund aims to make crowdfunding safer, more reliable, and data-driven by using AI and machine learning to prevent scams, promote genuine causes, and build donor confidence.
 
 
-## Dont start blockchain, it is not yet implemented. 
-Command to start frontend : npm start
-Command to start backend : npm run dev
+##  How to Run the Project
+
+This project consists of three main components: a frontend, a backend, and a local blockchain node. You will need to run them simultaneously in three separate terminal windows.
+
+### 1. Start the Blockchain Node
+Navigate to the blockchain directory and start the local Hardhat network:
+```bash
+cd hivefund-blockchain
+npx hardhat node
+```
+*Note: This will spin up a local Ethereum network and provide you with test accounts.*
+
+### 2. Start the Backend Server
+In a new terminal window, navigate to the backend directory and start the server:
+```bash
+cd hivefund-backend
+npm run dev
+```
+*Note: The backend will connect to MongoDB Atlas and the local blockchain.*
+
+### 3. Start the Frontend Application
+In a third terminal window, from the root directory, start the React application:
+```bash
+npm start
+```
+*Note: The frontend will be available at http://localhost:5173.*
 
 ##  License
 

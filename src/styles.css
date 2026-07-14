@@ -24,9 +24,9 @@ body {
 }
 
 .hf-header-inner {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 12px 18px;
+  padding: 18px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -65,12 +65,19 @@ body {
 }
 
 .hf-ghost {
-  border: none;
+  border: 1px solid #d1d5db;
   background: transparent;
-  padding: 6px 10px;
-  border-radius: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 14px;
+  color: #374151;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.hf-ghost:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
 }
 
 .hf-cta {
@@ -83,18 +90,10 @@ body {
 }
 
 /* ---------------------------------------------------------
-   HERO SECTION
+   HERO SECTION (base styles — layout is set later in this file)
    --------------------------------------------------------- */
 .hf-hero {
   background: linear-gradient(180deg, #ffffff, #f7fbff);
-  padding: 70px 0 40px;
-}
-
-.hf-hero-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 18px;
-  text-align: center;
 }
 
 .hf-hero-sub {
@@ -200,12 +199,12 @@ body {
 .hf-footer {
   background: #0b1220;
   color: #d7dee8;
-  padding: 40px 18px;
-  margin-top: 50px;
+  padding: 40px 40px;
+  margin-top: 20px;
 }
 
 .hf-footer-inner {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   gap: 40px;
@@ -238,7 +237,7 @@ body {
 }
 
 .hf-footer-bottom {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 22px auto 0;
   display: flex;
   justify-content: space-between;
@@ -440,9 +439,9 @@ body {
 }
 
 .hf-header-inner {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 10px 18px;
+  padding: 18px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -527,26 +526,24 @@ body {
   --hf-header-height: 72px; /* change this value if header height differs */
 }
 
-/* make hero full viewport minus header so it never hides behind header */
+/* hero section */
 .hf-hero {
-  min-height: calc(100vh - var(--hf-header-height));
   display: flex;
-  align-items: center;         /* vertical center */
-  justify-content: center;     /* center horizontally if needed */
-  padding: 40px 0;             /* some breathing room */
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0 60px;
   box-sizing: border-box;
-  scroll-snap-align: start;
 }
 
 /* inner container keeps the hero layout */
 .hf-hero-inner {
   width: 100%;
-  max-width: 1100px;
-  padding: 0 18px;
+  max-width: 1300px;
+  padding: 0 40px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
   align-items: center;
   justify-content: center;
 }
@@ -579,17 +576,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Optional: add a soft bottom fade so the edge between hero and next section looks nice */
-.hf-hero::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 60px;
-  pointer-events: none;
-  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 60%, rgba(255,255,255,1) 100%);
-}
+/* bottom fade removed to prevent extra spacing */
 /* Campaigns page: clean hero + large search + grid cards */
 
 .page-campaigns { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color: #0b1220; }
@@ -684,21 +671,20 @@ body {
   border-bottom: 1px solid #eef2f6;
 }
 .home-hero-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 28px;
-  align-items: start;
+  /* Override the old grid setup, setting it back to flex for alignment */
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  grid-template-columns: 1fr; /* Explicitly reset grid column structure */
 }
 
 /* left hero text */
-.hero-eyebrow { color: #1f6f3a; font-weight: 800; font-size: 14px; letter-spacing: .6px; margin-bottom: 8px; text-transform: uppercase; }
-.hero-title { font-size: clamp(22px, 3.6vw, 36px); margin: 0 0 12px; font-weight: 800; line-height: 1.02; color: #0b1220; }
-.hero-sub { color: #5d6b72; margin: 0 0 18px; max-width: 720px; }
+.hero-eyebrow { color: #1f6f3a; font-weight: 800; font-size: 17px; letter-spacing: .8px; margin-bottom: 8px; text-transform: uppercase; }
+.hero-title { font-size: clamp(28px, 4.5vw, 48px); margin: 0 0 10px; font-weight: 800; line-height: 1.05; color: #0b1220; }
+.hero-sub { color: #5d6b72; margin: 0 0 14px; max-width: 900px; font-size: 19px; line-height: 1.5; }
 
 /* CTA buttons */
-.hero-ctas { display:flex; gap:12px; align-items:center; margin-bottom: 12px; }
+.hero-ctas { display:flex; gap:12px; align-items:center; margin-bottom: 10px; }
 .btn { text-decoration: none; display: inline-block; padding: 10px 16px; border-radius: 999px; font-weight: 700; }
 .btn-primary { background: #1f6f3a; color: white; }
 .btn-secondary { background: transparent; border: 1px solid #d9e9dd; color: #0b1220; }
@@ -712,8 +698,8 @@ body {
 .hero-card-title { font-size: 13px; font-weight: 800; color: #0b1220; margin-bottom: 8px; }
 
 /* HOW IT WORKS - big vertical explanation */
-.how-it-works { padding: 48px 12px; background: #ffffff; }
-.how-inner { max-width: 1100px; margin: 0 auto; }
+.how-it-works { padding: 48px 40px; background: #ffffff; }
+.how-inner { max-width: 1300px; margin: 0 auto; }
 .how-eyebrow { color: #1f6f3a; font-weight: 800; font-size: 13px; text-transform: uppercase; margin-bottom: 8px; }
 .how-title { font-size: clamp(20px, 3vw, 32px); margin: 0 0 18px; font-weight: 800; color: #0b1220; }
 
@@ -726,8 +712,8 @@ body {
 .step-desc { margin: 0; color: #51626a; line-height: 1.5; }
 
 /* WHY & Testimonials area */
-.why-and-testimonials { padding: 40px 12px; background: linear-gradient(180deg,#fbfcfe 0%, #ffffff 100%); border-top: 1px solid #eef2f6; }
-.why-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 420px; gap: 28px; }
+.why-and-testimonials { padding: 40px 40px; background: linear-gradient(180deg,#fbfcfe 0%, #ffffff 100%); border-top: 1px solid #eef2f6; }
+.why-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 420px; gap: 28px; }
 .why-title { margin: 0 0 12px; font-size: 20px; font-weight: 800; }
 .why-list { padding-left: 18px; color: #51626a; }
 .why-list li { margin-bottom: 8px; }
@@ -801,7 +787,7 @@ body {
 
 /* When on small screens, reduce hero padding and title size */
 @media (max-width: 760px) {
-  .hf-hero { padding: 28px 0; min-height: calc(100vh - var(--hf-header-height)); }
+  .hf-hero { padding: 28px 0; }
   .hf-hero-title { font-size: clamp(28px, 8vw, 40px); }
   .hf-hero-desc { font-size: 15px; padding: 0 8px; }
   .hf-btn-primary { padding: 12px 20px; font-size: 16px; }
@@ -825,30 +811,22 @@ body {
 /* We need to override the old .home-hero-inner grid on the home page so the
    new .hf-hero-inner styling can take over the centering.
 */
-.home-hero-inner {
-  /* Override the old grid setup, setting it back to flex for alignment */
-  display: flex; 
-  flex-direction: column;
-  align-items: center;
-  grid-template-columns: 1fr; /* Explicitly reset grid column structure */
-}
 
 .home-hero-v2 {
-  /* Ensure this uses the full screen properties of hf-hero */
-  padding: 0; 
-  border-bottom: none; 
+  padding: 80px 0 60px;
+  border-bottom: none;
 }
 
 /* Ensure the inner content of the v2 hero is correctly centered and sized */
 .home-hero-v2-inner {
   width: 100%;
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 /* Featured card in the full-screen hero - ensure it's centered with other content */
@@ -1373,3 +1351,4 @@ html {
   h2 { font-size: 20px; }
   p  { font-size: 14px; line-height: 1.5; }
 }
+
